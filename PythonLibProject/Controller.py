@@ -1,13 +1,12 @@
 import mysql.connector
-
+from datetime import date
 class Controller:
-    import mysql
 
     def __init__(self):
         self.mydb = mysql.connector.connect(
           host="localhost",
           user="root",
-          password="",
+          password="root",
           database="librarydatabase"
         )
         self.mycursor = self.mydb.cursor()
@@ -57,23 +56,54 @@ class Controller:
         """
         self.mycursor.execute(query)
         return self.mycursor.fetchall()
-        print(genre)
 
-    def addAuthor(self, name):
-        print(name)
+    def addAuthor(self, **kwargs):
+        keys = []
+        values = []
+        for k,v in kwargs.items():
+            keys.append(k)
+            values.append(str(v))
+        query = f"""
+        INSERT INTO author({", ".join(keys)})
+        VALUES ({", ".join(values)});
+        """
+        try:
+            self.mycursor.execute(query)
+        except Exception as e:
+            return e
 
     def deleteAuthor(self, authorId):
-        print(self, authorId)
+        query = f"""
+        DELETE FROM author
+        WHERE authorid = {authorId}"""
+        self.mycursor.execute(query)
 
-    def addBook(self, name):
-        print(self, name)
-
+    def addBook(self, **kwargs):
+        keys = []
+        values = []
+        for k, v in kwargs.items():
+            keys.append(k)
+            values.append(str(v))
+        query = f"""
+                INSERT INTO book({", ".join(keys)})
+                VALUES ({", ".join(values)});
+                """
+        try:
+            self.mycursor.execute(query)
+        except Exception as e:
+            return e
     def deleteBook(self, bookId):
-        print(bookId)
+        query = f"""
+        DELETE FROM book
+        WHERE bookid = {bookId}
+        """
+        self.mycursor.execute(query)
 
-'''
+
 if __name__ == "__main__":
-    a = getSynopsis("1")
-    for x in a:
-        print(x)
-'''
+    c = Controller()
+    a = date.fromisoformat("2020-03-02")
+    print(str(a))
+    #
+    c.addBook(p="d")
+    print(c.searchByAuthor("King"))
