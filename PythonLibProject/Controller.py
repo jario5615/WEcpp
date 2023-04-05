@@ -76,6 +76,3 @@ class Controller:
         DELETE FROM {thing}
         WHERE authorid = {thingId}"""
         self.mycursor.execute(query)
-
-if __name__ == "__main__":
-    print("hello"[:-2])
