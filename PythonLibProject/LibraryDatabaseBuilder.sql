@@ -49,6 +49,15 @@ INSERT INTO Author (AuthorId, FirstName, LastName, Gender, DateOfBirth, DateOfDe
 INSERT INTO Author (AuthorId, FirstName, LastName, Gender, DateOfBirth, DateOfDeath) 
 			VALUES(6, 'Agatha', 'Christie', 'F', '1890-9-15', '1976-1-12');
 
+INSERT INTO Author (AuthorId, FirstName, LastName, Gender, DateOfBirth)
+			VALUES (7, 'Margaret', 'Atwood', 'F', '1939-11-18');
+            
+INSERT INTO Author (AuthorId, FirstName, LastName, Gender, DateOfBirth)
+			VALUES (8, 'Haruki', 'Murakami', 'M', '1949-01-12');
+            
+INSERT INTO Author (AuthorId, FirstName, LastName, Gender, DateOfBirth)
+			VALUES(9, 'Neil', 'Gaiman', 'M', '1960-11-10');
+
 # Adding Books
 INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
 			VALUES(1, 4, 5, 'Pride and Prejudice', 'Follows the turbulent relationship between Elizabeth Bennet,
@@ -127,6 +136,53 @@ INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
 			Detective Hercule Poirot sets out to solve the mystery in a suspenseful and unpredictable tale that will keep readers guessing
 			until the very end.', '1926-6-19');
 
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES (20, 1, 1, 'Pet Sematary', 'In Stephen King\'s horror novel "Pet Sematary," a family moves to a rural town in Maine and discovers a cursed burial ground
+			that has the power to bring the dead back to life. As the family\'s tragedies unfold, they become entangled in the supernatural forces
+			that haunt the land.' , '1983-11-14');
 
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES (21, 7, 2, 'The Handmaid''s Tale', 'In a dystopian future, fertile women are forced to bear children for wealthy families. Follow Offred, a Handmaid,
+			 as she navigates life under a repressive regime.', '1985-09-01');
 
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES (22, 7, 2, 'Alias Grace', 'Based on a true story, Alias Grace tells the tale of a young woman convicted of murder in 19th century Canada. But was she really guilty?
+			 Dr. Simon Jordan is hired to find out.', '1996-09-01');
+
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES (23, 7, 5, 'The Edible Woman', 'Marian feels like she is losing her identity as she tries to fit into society''s expectations of women. Can she break free from the mold
+			 and find her true self?', '1969-01-01');
             
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES (24, 8, 2, 'Kafka on the Shore', 'A boy named Kafka Tamura runs away from home to escape his father''s curse and seeks refuge in a library in Takamatsu. Meanwhile,
+			 an old man named Nakata experiences strange phenomena and sets out on a journey to find Kafka. Their paths intersect in unexpected ways.', '2002-01-01');
+
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES (25, 8, 3, 'Hard-Boiled Wonderland and the End of the World', 'A man known only as the "Narrator" is employed as a "Calcutec" by the System, a vast network of computers
+			 that manage society. His job is to read encoded messages from the System''s mainframe, but he soon finds himself drawn into a surreal underworld
+			 of dreamlike proportions.', '1985-01-01');
+
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES (26, 8, 6, 'What I Talk About When I Talk About Running', 'A memoir about the author''s experience with long-distance running, Murakami reflects on his career
+			 as a novelist and how running has influenced his life and writing. It also explores his philosophy on the importance of discipline, perseverance, and the journey over
+			 the destination.', '2007-01-01');
+             
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES(27, 9, 2, 'American Gods', 'Ex-convict Shadow Moon becomes embroiled in a battle between gods of the old world and the new, led by Mr. Wednesday,
+            in this sweeping tale of magic and myth set across America.', '2001-6-19');
+
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES(28, 9, 1, 'The Sandman Vol. 1: Preludes and Nocturnes', 'The first volume of Gaiman\'s critically acclaimed graphic novel series "The Sandman", in which the lord of dreams
+			 is captured and held prisoner for seventy years, leading to a quest for his freedom and restoration of his realm.', '1991-1-1');
+
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES(29, 9, 2, 'Stardust', 'Young Tristan Thorn embarks on a perilous journey through Faerie to retrieve a fallen star for his beloved, encountering witches, sky pirates,
+			 and other magical creatures along the way.', '1999-10-1');
+
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES(30, 9, 3, 'Neverwhere', 'When London resident Richard Mayhew helps an injured girl on the street, he is plunged into the dangerous and fantastical world of "London Below",
+			 where the people and places exist outside of ordinary reality.', '1996-9-16');
+
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES(31, 9, 1, 'The Ocean at the End of the Lane', 'A middle-aged man returns to his childhood home and the memories of a terrifying and otherworldly experience that occurred there,
+			 involving a family of witches and a dark force from beyond the universe.', '2013-6-18');
