@@ -43,6 +43,12 @@ INSERT INTO Author (AuthorId, FirstName, LastName, Gender, DateOfBirth)
 INSERT INTO Author (AuthorId, FirstName, LastName, Gender, DateOfBirth, DateOfDeath) 
 			VALUES(4, 'Jane', 'Austen', 'F', '1775-12-16', '1817-7-18');
 
+INSERT INTO Author (AuthorId, FirstName, LastName, Gender, DateOfBirth, DateOfDeath) 
+			VALUES(5, 'George', 'Orwell', 'M', '1903-6-25', '1950-1-21');
+
+INSERT INTO Author (AuthorId, FirstName, LastName, Gender, DateOfBirth, DateOfDeath) 
+			VALUES(6, 'Agatha', 'Christie', 'F', '1890-9-15', '1976-1-12');
+
 # Adding Books
 INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
 			VALUES(1, 4, 5, 'Pride and Prejudice', 'Follows the turbulent relationship between Elizabeth Bennet,
@@ -95,5 +101,32 @@ INSERT INTO Book (BookId, AuthorId, GenreId, Title, PublicationDate)
             
 INSERT INTO Book (BookId, AuthorId, GenreId, Title, PublicationDate)
 			VALUES(14, 3, 2, 'Harry Potter and the Deathly Hallows', '2007-7-21');
+            
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES(15, 5, 3, 'Nineteen Eighty-Four', 'follows the life of Winston Smith, a low ranking member of \'the Party\', 
+            who is frustrated by the omnipresent eyes of the party, and its ominous ruler Big Brother. 
+            \'Big Brother\' controls every aspect of people\'s lives.', '1949-6-8');
+
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES(16, 5, 6, 'Down and Out in Paris and London', 'Down and Out reflects the author\'s preoccupation with social inequality and the 
+            conditions that create homelessness. The book begins by describing the protagonist\'s stay in Paris, where he works as a dishwasher, 
+            before he moves back to England to explore life on the margins in London.', '1933-1-9');
+            
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES(17, 6, 4, 'Murder on the Orient Express', '"Murder on the Orient Express" by Agatha Christie is a classic whodunit novel 
+            set on a luxurious train journey through Europe. Follow detective Hercule Poirot as he attempts to solve a murder with a cast of colorful 
+            characters and clever clues that will keep you guessing until the very end.', '1934-1-1');
+
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES (18, 6, 4, 'And Then There Were None', 'Ten strangers are lured to an island by an unknown host, only to find themselves trapped and killed off one by one.
+			As the tension and suspicion grows, they must solve the mystery before they all meet their demise. A thrilling and suspenseful
+			classic mystery novel by Agatha Christie.', '1939-11-6');
+            
+INSERT INTO Book (BookId, AuthorId, GenreId, Title, Synopsis, PublicationDate)
+			VALUES (19, 6, 4, 'The Murder of Roger Ackroyd', 'In this classic whodunit, a wealthy man is found dead, and all clues point to his widow. But is she really guilty?
+			Detective Hercule Poirot sets out to solve the mystery in a suspenseful and unpredictable tale that will keep readers guessing
+			until the very end.', '1926-6-19');
+
+
 
             
