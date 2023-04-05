@@ -56,54 +56,26 @@ class Controller:
         """
         self.mycursor.execute(query)
         return self.mycursor.fetchall()
-
-    def addAuthor(self, **kwargs):
-        keys = []
-        values = []
-        for k,v in kwargs.items():
-            keys.append(k)
-            values.append(str(v))
-        query = f"""
-        INSERT INTO author({", ".join(keys)})
-        VALUES ({", ".join(values)});
-        """
-        try:
-            self.mycursor.execute(query)
-        except Exception as e:
-            return e
-
-    def deleteAuthor(self, authorId):
-        query = f"""
-        DELETE FROM author
-        WHERE authorid = {authorId}"""
-        self.mycursor.execute(query)
-
-    def addBook(self, **kwargs):
+    def addThing(self, theThing, kwargs):
         keys = []
         values = []
         for k, v in kwargs.items():
             keys.append(k)
             values.append(str(v))
         query = f"""
-                INSERT INTO book({", ".join(keys)})
+                INSERT INTO {theThing}({", ".join(keys)})
                 VALUES ({", ".join(values)});
                 """
         try:
             self.mycursor.execute(query)
+            self.mydb.commit()
         except Exception as e:
             return e
-    def deleteBook(self, bookId):
+    def deleteThing(self, thing, thingId):
         query = f"""
-        DELETE FROM book
-        WHERE bookid = {bookId}
-        """
+        DELETE FROM {thing}
+        WHERE authorid = {thingId}"""
         self.mycursor.execute(query)
 
-
 if __name__ == "__main__":
-    c = Controller()
-    a = date.fromisoformat("2020-03-02")
-    print(str(a))
-    #
-    c.addBook(p="d")
-    print(c.searchByAuthor("King"))
+    print("hello"[:-2])
