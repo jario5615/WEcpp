@@ -1,5 +1,9 @@
 import mysql.connector
 from datetime import date
+
+from Tools.scripts.var_access_benchmark import C
+
+
 class Controller:
 
     def __init__(self):
@@ -61,7 +65,7 @@ class Controller:
         values = []
         for k, v in kwargs.items():
             keys.append(k)
-            values.append(str(v))
+            values.append(f"'{v}'")
         query = f"""
                 INSERT INTO {theThing}({", ".join(keys)})
                 VALUES ({", ".join(values)});
