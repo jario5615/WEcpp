@@ -1,16 +1,13 @@
 import mysql.connector
-from datetime import date
-
-from Tools.scripts.var_access_benchmark import C
-
 
 class Controller:
+    import mysql
 
     def __init__(self):
         self.mydb = mysql.connector.connect(
           host="localhost",
           user="root",
-          password="root",
+          password="",
           database="librarydatabase"
         )
         self.mycursor = self.mydb.cursor()
@@ -21,27 +18,29 @@ class Controller:
         lastname = name.split(" ")[1]
         '''
         query = f"""
-        SELECT book.*, author.firstname, author.lastname
+        SELECT book.bookid, book.title, CONCAT (author.firstname, " ", author.lastname) as name, genre.genrename
         FROM book
         JOIN author on author.authorid = book.authorid
-        WHERE author.firstname LIKE  '%{name}%' OR author.lastname LIKE '%{name}%';
+        JOIN genre ON book.genreid = genre.genreid
+        WHERE CONCAT (author.firstname, " ", author.lastname) LIKE '%{name}%';
         """
         self.mycursor.execute(query)
         return self.mycursor.fetchall()
 
     def searchByTitle(self, title: str):
         query = f"""
-        SELECT book.*, author.firstname, author.lastname
+        SELECT book.bookid, book.title, CONCAT (author.firstname, " ", author.lastname) as name, genre.genrename
         FROM book
         JOIN author ON book.authorid = author.authorid
-        WHERE book.title = '{title}';
+        JOIN genre ON book.genreid = genre.genreid
+        WHERE book.title LIKE '%{title}%';
         """
         self.mycursor.execute(query)
         return self.mycursor.fetchall()
 
     def searchByGenre(self, genre: str):
         query = f"""
-        SELECT book.*, author.firstname, author.lastname
+        SELECT book.bookid, book.title, CONCAT (author.firstname, " ", author.lastname) as name, genre.genrename
         FROM book
         JOIN author ON book.authorid = author.authorid
         JOIN genre ON book.genreid = genre.genreid
@@ -49,17 +48,17 @@ class Controller:
         """
         self.mycursor.execute(query)
         return self.mycursor.fetchall()
-        print(genre)
 
     def getSynopsis(self, bookId):
         query = f"""
-        SELECT book.title, author.firstname, author.lastname, book.synopsis
+        SELECT book.title, CONCAT (author.firstname, " ", author.lastname) as name, book.synopsis
         FROM book
         JOIN author ON book.authorid = author.authorid
         WHERE book.bookid = '{bookId}'
         """
         self.mycursor.execute(query)
         return self.mycursor.fetchall()
+
     def addThing(self, theThing, kwargs):
         keys = []
         values = []
@@ -75,6 +74,7 @@ class Controller:
             self.mydb.commit()
         except Exception as e:
             return e
+
     def deleteThing(self, thing, thingId):
         query = f"""
         DELETE FROM {thing}
