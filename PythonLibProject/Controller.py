@@ -14,6 +14,7 @@ class Controller:
         with open(filename, "r") as f:
             for query in f.read().split(";")[:-1]:
                 self.mycursor.execute(query+";", multi=True)
+                self.mydb.commit()
     def searchByAuthor(self, name: str):
         '''
         firstname = name.split(" ")[0]
