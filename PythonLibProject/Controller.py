@@ -82,7 +82,7 @@ class Controller:
     def deleteThing(self, thing, thingId):
         query = f"""
         DELETE FROM {thing}
-        WHERE authorid = {thingId}"""
+        WHERE {thing}id = {thingId}"""
         self.mycursor.execute(query)
 
 if __name__ == "__main__":
