@@ -90,8 +90,8 @@ while choice != "0":
                             except Exception:
                                 dod = input("Enter date of birth in format YYYY-MM-DD: ")
                         if dob == "": dob = None
-                        insert = {"id": id, "firstname": firstname, "middlename": middlename, "lastname": lastname, "gender": gender, "dateofbirth": dob, "dateofdeath": dod}
-                        control.addThing("author", insert)
+                        insert = {"authorid": id, "firstname": firstname, "middlename": middlename, "lastname": lastname, "gender": gender, "dateofbirth": dob, "dateofdeath": dod}
+                        print(control.addThing("author", insert))
 
                     case "2":
                         id = input("Enter ID of author to delete")
@@ -136,6 +136,7 @@ while choice != "0":
                         genrename = input("Enter genre name")
                         while genreid == "":
                             genrename = input("Enter genre name:")
+                        control.addThing("genre", {"genreid": genreid, "genrename": genrename})
 
                     case "6":
                         genreid = input("Enter ID of genre to delete")
