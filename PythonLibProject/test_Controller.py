@@ -178,6 +178,7 @@ def test_delete_thing() :
     assert len(booktitle) == 0  # verify it has been deleted
     allbooks = controller.searchByTitle("")  # all books in the database
     assert len(allbooks) == 30
+    del controller
 
     controller = Controller("LibraryDatabaseTest.sql") #  fresh database
     books = controller.searchByAuthor("Stephen King")
@@ -190,6 +191,7 @@ def test_delete_thing() :
     assert len(books) == 0
     allbooks = controller.searchByTitle("")  # all books in the database
     assert len(allbooks) == 27
+    del controller
 
     controller = Controller("LibraryDatabaseTest.sql")  # fresh database
     books = controller.searchByGenre("Romance")
