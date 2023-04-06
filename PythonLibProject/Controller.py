@@ -66,8 +66,9 @@ class Controller:
         keys = []
         values = []
         for k, v in kwargs.items():
-            keys.append(k)
-            values.append(f"'{v}'")
+            if v is not None and v != "":
+                keys.append(k)
+                values.append(f"'{v}'")
         query = f"""
                 INSERT INTO {theThing}({", ".join(keys)})
                 VALUES ({", ".join(values)});
