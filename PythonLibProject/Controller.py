@@ -84,6 +84,7 @@ class Controller:
         DELETE FROM {thing}
         WHERE {thing}id = {thingId};"""
         self.mycursor.execute(query)
+        self.mydb.commit()
 
 if __name__ == "__main__":
 
