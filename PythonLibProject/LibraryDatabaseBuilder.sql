@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS LibraryDatabase;
-CREATE DATABASE LibraryDatabase;
-USE LibraryDatabase;
+DROP DATABASE IF EXISTS LibraryDatabaseTest;
+CREATE DATABASE LibraryDatabaseTest;
+USE LibraryDatabaseTest;
 
 CREATE TABLE Author(
 	AuthorId INT PRIMARY KEY NOT NULL,
