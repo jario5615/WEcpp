@@ -2,7 +2,7 @@ from Controller import Controller
 import re
 
 def test_search_by_author() :
-    controller = Controller()
+    controller = Controller("LibraryDatabaseTest.sql")
     # full name
     sk = controller.searchByAuthor("Stephen King")
     assert len(sk) == 4
@@ -43,7 +43,7 @@ def checkTitles(books, assertFalse) :
 
 
 def test_search_by_title() :
-    controller = Controller()
+    controller = Controller("LibraryDatabaseTest.sql")
     booktitle = controller.searchByTitle("IT")  # single word title
     assert len(booktitle) == 1
     assert len(booktitle[0]) == 8
@@ -59,7 +59,7 @@ def test_search_by_title() :
 
 
 def test_search_by_genre() :
-    controller = Controller()
+    controller = Controller("LibraryDatabaseTest.sql")
     bookgenre = controller.searchByGenre("Horror")
     assert len(bookgenre) == 5
     bookgenre = controller.searchByGenre("Romance")
@@ -75,7 +75,7 @@ def test_search_by_genre() :
 
 
 def test_get_synopsis() :
-    controller = Controller()
+    controller = Controller("LibraryDatabaseTest.sql")
     synopsis = controller.getSynopsis(1)
     synopsis =  re.sub('\W+',' ', synopsis[0][3])
     expected = "Follows the turbulent relationship between Elizabeth Bennet,\

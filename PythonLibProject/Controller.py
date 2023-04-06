@@ -3,15 +3,17 @@ import mysql.connector
 class Controller:
     import mysql
 
-    def __init__(self):
+    def __init__(self, filename):
         self.mydb = mysql.connector.connect(
           host="localhost",
           user="root",
-          password="",
-          database="librarydatabase"
+          password="root",
+          #database="librarydatabase"
         )
         self.mycursor = self.mydb.cursor()
-
+        with open(filename, "r") as f:
+            for query in f.read().split(";")[:-1]:
+                self.mycursor.execute(query+";", multi=True)
     def searchByAuthor(self, name: str):
         '''
         firstname = name.split(" ")[0]
@@ -80,3 +82,9 @@ class Controller:
         DELETE FROM {thing}
         WHERE authorid = {thingId}"""
         self.mycursor.execute(query)
+
+if __name__ == "__main__":
+
+    c = Controller("LibraryDatabaseTest.sql")
+    a = c.searchByAuthor("king")
+    print(a)
